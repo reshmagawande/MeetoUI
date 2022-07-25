@@ -1,0 +1,95 @@
+
+html, body{
+    overflow-x: hidden;
+}
+body{
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+.text-30{
+    font-size: 30px;
+    font-weight: 700;
+}
+.text-18{
+    font-size: 18px;
+}
+.mb-30{
+    margin-bottom: 30px;
+}
+.login-meeto{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-image: url(../images/bg-img.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.login{
+    display: grid;
+    place-items: center;
+    position:absolute;
+    top: 0px;
+    height: 100vh;
+    width: 100%;
+}
+.login form{
+    height: auto;
+    width: 516px;
+    border-radius: 24px;
+    background-color: #fff;
+    padding: 55px 74px;
+}
+.login-title{
+    margin-bottom: 30px;
+}
+.form-fieldset-pos{
+    position: relative;
+    margin-bottom: 30px;
+}
+.form-fieldset-pos label{
+    position: absolute;
+    left: 28px;
+    top: -12px;
+    background: #fff;
+    padding: 0px 4px;
+}
+.form-fieldset-pos input{
+    height: 64px !important;
+    border: 1px solid #43AA8B;
+}
+.form-check-size{
+    width: 24px !important;
+    height: 24px !important;
+    margin-right: 10px !important;
+}
+.btn-success{
+    background-color: #D7FF66 !important;
+    border: 1px solid #D7FF66 !important;
+    color: #000 !important;
+    border-radius: 6px !important;
+    font-size: 22px !important;
+    padding: 16px !important;
+}
+.signup-account{
+    margin-top: 40px;
+}
+.btn-google{
+    
+}
+#otp{
+    margin-bottom: 26px;
+}
+.login-signup-btns .form-control {
+    font-size: 19px;
+    border-width: 1px;
+    border-color: #43AA8B !important;
+}
+.inputs input {
+    width: 50px;
+    height: 50px;
+}
