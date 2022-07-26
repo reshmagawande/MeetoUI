@@ -43,7 +43,7 @@ export default function App() {
         var data = JSON.stringify(strReqLinks);
         var config = {
             method: 'post',
-            url: 'https://localhost:44323/api/User/GetAvailability',
+            url: 'https://dmthhbq42j.execute-api.ap-south-1.amazonaws.com/Prod/api/User/GetAvailability',
             headers: {
                 'Content-Type': 'application/json'
             },

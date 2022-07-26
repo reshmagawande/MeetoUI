@@ -14,7 +14,7 @@ export default function login() {
 
     var config = {
       method: 'post',
-      url: 'https://localhost:44323/api/User/Authenticate',
+      url: 'https://dmthhbq42j.execute-api.ap-south-1.amazonaws.com/Prod/api/User/Authenticate',
       headers: {
         'Content-Type': 'application/json'
       },

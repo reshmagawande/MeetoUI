@@ -13,7 +13,7 @@ export default function registration() {
     
     var config = {
       method: 'post',
-      url: 'https://localhost:44323/api/User/UserRegistration',
+      url: 'https://dmthhbq42j.execute-api.ap-south-1.amazonaws.com/Prod/api/User/UserRegistration',
       headers: { 
         'Content-Type': 'application/json'
       },
