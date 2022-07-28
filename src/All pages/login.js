@@ -2,68 +2,34 @@ import React, { useState } from 'react'
 import axios from 'axios';
 export default function Login() {
 
-  const [Email, setName] = useState("");
+  const [EmailId, setName] = useState("");
   const [Password, setPassword] = useState("");
-
+  
   const onSaveClick = (e) => {
-
-    // var axios = require('axios');
+    var axios = require('axios');
+    var data = JSON.stringify({
+      "EmailId": "reshma.gawande@arieotech.com",
+      "Password": "reshmak"
+    });
+    var data = JSON.stringify({ "Email": EmailId, "Password": Password });
+    var config = {
+      method: 'get',
+      url: 'https://localhost:44347/api/User/Login',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
     
-    // var data = JSON.stringify({ "Email": Email, "Password": Password });
-
-    // var config1 = {
-    //   method: 'post',
-    //   url: 'https://localhost:44323/api/User/Authenticate',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   data: data
-    // };
-
-    // axios(config1).then(function (response1) {
-    //   alert(JSON.stringify(response1.data));
-    //   alert(JSON.stringify(response1.data));
-    //   // alert(response1.data.Email);
-    //   // alert(response1.data.FirstName + " " + response1.data.LastName);
-    //   // alert(response1.data.UserLink);
-    //   // localStorage.setItem('userEmail',response1.data.Email);
-    //   // localStorage.setItem('userName',response1.data.FirstName + " " + response1.data.LastName);
-    //   // localStorage.setItem('userLink',response1.data.UserLink);
-    //   // alert(localStorage.getItem('userEmail'));
-    //   window.location='./SlotFound';
-    // }).catch(function (error) {
-    //   console.log(error);
-    // });
-
-      localStorage.setItem('userEmail','');
-      localStorage.setItem('userName','Snehal Ratnaparkhi');
-      localStorage.setItem('userLink','https://calendly.com/snehal-ratnaparkhi');
-//alert(Email);
-    if(Email == 'snehal.ratnaparkhi@arieotech.com')
-    {
-      localStorage.setItem('userEmail',Email);
-      localStorage.setItem('userName','Snehal Ratnaparkhi');
-      localStorage.setItem('userLink','https://calendly.com/snehal-ratnaparkhi');
-    }
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
     
-    if(Email == 'reshma.gawande@arieotech.com')
-    {
-      localStorage.setItem('userEmail',Email);
-      localStorage.setItem('userName','Reshma Gawande');
-      localStorage.setItem('userLink','https://calendly.com/reshma-gawande');
-    }
-
-    if(localStorage.getItem('userEmail') == 'reshma.gawande@arieotech.com' || localStorage.getItem('userEmail') == 'snehal.ratnaparkhi@arieotech.com')
-        {
-          window.location='./';
-        }
-        else
-        {
-            alert('Invalid Login..');
-        }
-      e.preventDefault();
-      //window.location = "https://www.bbc.co.uk";
-      //window.location='./';
+    
   }
   const onChangeName = (e) => {
     setName(e.target.value);
@@ -83,7 +49,7 @@ export default function Login() {
             <p class="text-30 login-title">MEETO</p>
             <div class="form-group form-fieldset-pos">
               <label for="exampleInputEmail1">Email</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={onChangeName} placeholder="Enter email" value={Email} />
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={onChangeName} placeholder="Enter email" value={EmailId} />
             </div>
             <div class="form-group form-fieldset-pos">
               <label for="exampleInputPassword1">Password</label>

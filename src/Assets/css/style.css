@@ -181,9 +181,12 @@ width: 374px;
 .enter-link label{
     margin-bottom: 20px;
 }
-.enter-link .form-control{
+/* .enter-link .form-control{
     height: 65px;
-}
+} */
+.border{
+    border: 1px solid #66a02c0d;
+  }
 .enter-link .form-control::placeholder {
     color: #726464;
     font-style: italic;

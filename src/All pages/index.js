@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
-import img1 from '../Assets/images/vecteezy_teamwork-or-team-building-office-business-meeting-vector_4154417 1.png'
+// import img1 from '../Assets/images/vecteezy_teamwork-or-team-building-office-business-meeting-vector_4154417 1.png'
 import img2 from '../Assets/images/image 36.png'
 import img3 from '../Assets/images/image 37.png'
 import img4 from '../Assets/images/image 39.png'
 import { Link } from 'react-router-dom'
+import img1 from '../Assets/images/th.gif'
 
 
 
@@ -71,7 +72,8 @@ const signUp =()=>{
                 <span class="carousel-para d-block">Sheduling Meetings for Busy People Made Easy Within 3 Clicks  </span>
                 <button class="btn btn-success carousel-padd" onClick={getStart}>Get Started</button>
             </div>
-            <div class="col-md-8">
+            <div class=" align-items-center col-md-2"></div>
+            <div class=" align-items-center col-md-6">
                 <img src={img1} class="img-fluid" alt=""/>
             </div>
         </div>

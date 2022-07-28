@@ -5,7 +5,8 @@ import img2 from '../Assets/images/Group 1.png'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import moment from 'moment'
-import loader from '../Assets/images/loading.gif'
+import loader from '../Assets/images/loader1.gif'
+// import loader from '../Assets/images/loading.gif'
 // import './ButtonDemo.css';
 
 export default function App() {
@@ -21,7 +22,7 @@ export default function App() {
 
     const onFindSlot = () => {
         //document.getElementById('load').innerHTML=" <div class='row'><div class='col-md-4'></div><div class='col-md-4' ><p><b>Loading Availability, Please wait...</b></p></div><div><img src="+loader+" width=\"100%\" height=\"150px\"></div><div class='col-md-4'></div>";
-        document.getElementById('load').innerHTML = " <div class='row'><div class='col-md-4'></div><div class='col-md-4' style={{textAlign: 'center'}}><p><b></b></p><img src=" + loader + " width=\"100%\" height=\"300px\"></div><div></div><div class='col-md-4'></div>";
+        document.getElementById('load').innerHTML = " <div class='row'><div class='col-md-3'></div><div class='col-md-6' style={{textAlign: 'center'}}><p><b></b></p><img src=" + loader + " width=\"100%\" height=\"300px\"></div><div></div><div class='col-md-3'></div>";
 
 
         var axios = require('axios');
@@ -43,7 +44,7 @@ export default function App() {
         var data = JSON.stringify(strReqLinks);
         var config = {
             method: 'post',
-            url: 'https://dmthhbq42j.execute-api.ap-south-1.amazonaws.com/Prod/api/User/GetAvailability',
+            url: 'http://3.16.57.109:80/api/User/GetAvailability',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -54,11 +55,11 @@ export default function App() {
             .then(function (response) {
                 // alert(JSON.stringify(response.data));
                 // console.log(JSON.stringify(response.data));
-                localStorage.setItem('availableSlots',JSON.stringify(response.data));
-               // alert(JSON.stringify(strLinks));
-                localStorage.setItem('providedLinks',JSON.stringify(strLinks));
-                localStorage.setItem('dt',dt);
-                window.location='./SlotFound';
+                localStorage.setItem('availableSlots', JSON.stringify(response.data));
+                // alert(JSON.stringify(strLinks));
+                localStorage.setItem('providedLinks', JSON.stringify(strLinks));
+                localStorage.setItem('dt', dt);
+                window.location = './SlotFound';
             })
             .catch(function (error) {
                 console.log(error);
@@ -118,12 +119,12 @@ export default function App() {
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-group">
-                                <div class="row">
+                            <div class="row">
                                 <div class="col-md-2">&nbsp;</div>
                                 <div class="col-md-10">
-                                <p class="text-30 link-title"><b>Calendly Details</b></p>
+                                    <p class="text-30 link-title"><b>Calendly Details</b></p>
                                 </div>
-                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -144,7 +145,7 @@ export default function App() {
                     </div>
                 </div>
                 <div class="container">
-                    <div  class="row">
+                    <div class="row">
                         <div class="col-md-2">
                             &nbsp;
                         </div>
@@ -164,7 +165,11 @@ export default function App() {
                         <div class="col-md-5">
                             <div class="form-group"      >
                                 <div style={{ height: "50px" }}>
-                                    <DatePicker value={selectedDate} selected={selectedDate} onChange={Date1 => setSelectedDate(Date1)} dateFormat='yyyy-MM-dd' minDate={new Date()} />
+                                    <DatePicker
+                                        className='form-control'
+                                        value={selectedDate} selected={selectedDate}
+                                        onChange={Date1 => setSelectedDate(Date1)}
+                                        dateFormat='yyyy-MM-dd' minDate={new Date()} />
                                 </div>
                             </div>
                         </div>
@@ -178,21 +183,26 @@ export default function App() {
                                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter link" /> */}
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-1">
+                            <div class="form-group"      >
+                                <span className='d-inline-block'><b>Attendee {index + 1}</b></span>
+                            </div>
+                        </div>&nbsp;
+                                <div class="col-md-5">
                                     <div class="form-group">
-                                        <span className='d-inline-block'><b>Attendee {index + 1} </b> ( https://calendly.com/[user-id] )</span>
+                                        {/* <span className='d-inline-block'><b>Attendee {index + 1} </b> </span> */}
                                         {/* <input type="email" class="form-control" id={index + 1} aria-describedby="emailHelp" placeholder="enter link" onChange={(e) => setLink([...strLinks,e.currentTarget.id])} /> */}
                                         <input type="email" class="form-control" id={index + 1} aria-describedby="emailHelp" placeholder="Enter link" onChange={(e) => handleTextChange(e)} />&nbsp;
                                     </div>
                                 </div>
-                                <div class="col-md-1" style={{ marginTop: "20px" }}>
+                                <div class="col-md-1">
                                     {/* <button icon="pi pi-times" className="p-button-rounded p-button-danger p-button-outlined" aria-label="Cancel"></button> */}
-                                    {personList.length > 2 && <button className='btn' id={(index + 1) + 100} onClick={(e) => handleServiceRemove(e)}><i className='fa fa-trash btn btn-success' ></i></button>}
+                                    {personList.length > 2 && <button className='btn' style={{backgroundColor:'grey'}} id={(index + 1) + 100} onClick={(e) => handleServiceRemove(e)}><i className='fa fa-trash' ></i></button>}
                                 </div>
                                 <div class="col-md-3"></div>
                             </div>
                             <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <div class="form-group">
 
                                     </div>
@@ -201,7 +211,7 @@ export default function App() {
 
                                     <div class="col-md-10">
                                         <div class="form-group">
-                                            {personList.length - 1 === index && <button class="btn btn-default" onClick={handleServiceAdd}><img src={img2} alt="" />&nbsp; Add Attendees</button>}
+                                            {personList.length - 1 === index && <button class="btn btn-default" style={{backgroundColor: '#D7FF66'}} onClick={handleServiceAdd}><img src={img2} alt="" />&nbsp; Add Attendees</button>}
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -209,10 +219,10 @@ export default function App() {
                                 </div>
                                 <div class="col-md-2" >
                                     <div class="form-group" >
-                                        {personList.length > 1 && personList.length - 1 === index && <button class="btn btn-success find-slot" onClick={onFindSlot}>Find A Slot</button>}
+                                        {personList.length > 1 && personList.length - 1 === index && <button class="btn btn-default" style={{backgroundColor: '#D7FF66'}} onClick={onFindSlot}>Find Slot</button>}
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
 
                                 </div>
                             </div>
@@ -223,6 +233,34 @@ export default function App() {
             </div>
 
 
+
+            {/* 
+
+            <div className='container'>
+                <div className='row'>
+                    <div className='col-2'></div>
+                    <div className='col-2'>
+                        <label>Select Date</label>
+                    </div>
+                    <div className='col-4'>
+                        <DatePicker
+                            className='form-control '
+                            value={selectedDate} selected={selectedDate}
+                            onChange={Date1 => setSelectedDate(Date1)}
+                            dateFormat='yyyy-MM-dd' minDate={new Date()} />
+                    </div>
+                    <div className='col-4'></div><br /><br />
+                    <div className='col-2'></div>
+                    <div className='col-2'>
+                        <label>attendee 1</label>
+                    </div>
+                    <div className='col-4'>
+                        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter link" onChange={(e) => handleTextChange(e)} />&nbsp;
+
+                    </div>
+                    <div className='col-4'></div><br />
+                </div>
+            </div> */}
         </>
     )
 }
