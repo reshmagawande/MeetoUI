@@ -44,7 +44,7 @@ export default function App() {
         var data = JSON.stringify(strReqLinks);
         var config = {
             method: 'post',
-            url: 'http://3.16.57.109:80/api/User/GetAvailability',
+            url: 'https://localhost:44347/api/User/GetAvailability',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -190,6 +190,7 @@ export default function App() {
                         </div>&nbsp;
                                 <div class="col-md-5">
                                     <div class="form-group">
+                                    {/* onChange={(e) => handleTextChange(e)}  */}
                                         {/* <span className='d-inline-block'><b>Attendee {index + 1} </b> </span> */}
                                         {/* <input type="email" class="form-control" id={index + 1} aria-describedby="emailHelp" placeholder="enter link" onChange={(e) => setLink([...strLinks,e.currentTarget.id])} /> */}
                                         <input type="email" class="form-control" id={index + 1} aria-describedby="emailHelp" placeholder="Enter link" onChange={(e) => handleTextChange(e)} />&nbsp;
@@ -197,7 +198,8 @@ export default function App() {
                                 </div>
                                 <div class="col-md-1">
                                     {/* <button icon="pi pi-times" className="p-button-rounded p-button-danger p-button-outlined" aria-label="Cancel"></button> */}
-                                    {personList.length > 2 && <button className='btn' style={{backgroundColor:'grey'}} id={(index + 1) + 100} onClick={(e) => handleServiceRemove(e)}><i className='fa fa-trash' ></i></button>}
+                                    {personList.length > 2 && <button className='btn btn-trash' id={(index + 1) + 100} onClick={(e) => handleServiceRemove(e)}><i className='fa fa-trash' ></i></button>}
+
                                 </div>
                                 <div class="col-md-3"></div>
                             </div>

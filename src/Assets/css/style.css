@@ -108,7 +108,10 @@ body{
 .login-signup-btns .form-control {
     font-size: 19px;
     border-width: 1px;
-    border-color: #43AA8B;
+    border-color: #43AA8B !important;
+}
+.btn-trash{
+    background-color: lightgray !important;
 }
 .inputs input {
     width: 50px;
