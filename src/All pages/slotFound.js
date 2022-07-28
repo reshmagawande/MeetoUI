@@ -29,11 +29,17 @@ export default function slotFound() {
     const dt = localStorage.getItem('dt');
     const userLink = localStorage.getItem('userLink');
     const availableSlots = JSON.parse(localStorage.getItem('availableSlots'));
-    const listItems = availableSlots.map((reptile) => <div class=" border">
-        {/* <li>{reptile}</li> */}
-        {reptile}
+    const listItems = availableSlots.map((reptile) => 
+    // <div class=" border text-box-slots">
+    //     {/* <li>{reptile}</li> */}
+    //     {reptile}
+    // </div>
+   
+          <div class="col-md-5 border text-box-slots" style={{textalign: 'center',}}>
+    {reptile}
+    
     </div>)
-
+ 
     const providedLinks = JSON.parse(localStorage.getItem('providedLinks'));
     const listUsers = providedLinks.map((reptile1) => <li>{reptile1}</li>)
     const handleClick = (e, index) => {
@@ -108,10 +114,14 @@ export default function slotFound() {
                             </ol></div>
 
                             <p class="text-30">Availability For : <lable class="slot-date">{dt}</lable></p>
-                            <div class="form-group">
-                            <div class="col-md-6" style={{textalign: 'center'}}>
+                            {listItems}
+                            {/* <div class="col-md-12" >
+                            <div class="col-md-6" style={{textalign: 'center',}}>
                                 {listItems}
                             </div>
+                            </div> */}
+                            <div class="form-group">
+                           
                             </div>
                             
                         </div>

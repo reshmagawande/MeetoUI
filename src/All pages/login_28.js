@@ -4,36 +4,38 @@ export default function Login() {
 
   const [Email, setName] = useState("");
   const [Password, setPassword] = useState("");
-
+  
   const onSaveClick = (e) => {
-
-    // var axios = require('axios');
+    var axios = require('axios');
     
-    // var data = JSON.stringify({ "Email": Email, "Password": Password });
+    var data = JSON.stringify({ "Email": Email, "Password": Password });
 
-    // var config1 = {
-    //   method: 'post',
-    //   url: 'https://localhost:44323/api/User/Authenticate',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   data: data
-    // };
+    var config = {
+      method: 'get',
+      url: 'https://localhost:44347/api/User/Login',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: data
+    };
 
-    // axios(config1).then(function (response1) {
-    //   alert(JSON.stringify(response1.data));
-    //   alert(JSON.stringify(response1.data));
-    //   // alert(response1.data.Email);
-    //   // alert(response1.data.FirstName + " " + response1.data.LastName);
-    //   // alert(response1.data.UserLink);
-    //   // localStorage.setItem('userEmail',response1.data.Email);
-    //   // localStorage.setItem('userName',response1.data.FirstName + " " + response1.data.LastName);
-    //   // localStorage.setItem('userLink',response1.data.UserLink);
-    //   // alert(localStorage.getItem('userEmail'));
-    //   window.location='./SlotFound';
-    // }).catch(function (error) {
-    //   console.log(error);
-    // });
+
+
+
+    axios(config).then(function (response1) {
+      alert(JSON.stringify(response1.data));
+     
+      // alert(response1.data.Email);
+      // alert(response1.data.FirstName + " " + response1.data.LastName);
+      // alert(response1.data.UserLink);
+      // localStorage.setItem('userEmail',response1.data.EmailId);
+      // localStorage.setItem('userName',response1.data.FirstName + " " + response1.data.LastName);
+      // localStorage.setItem('userLink',response1.data.UserLink);
+      // alert(localStorage.getItem('userEmail'));
+      window.location='./';
+    }).catch(function (error) {
+      console.log(error);
+    });
 
       localStorage.setItem('userEmail','');
       localStorage.setItem('userName','Snehal Ratnaparkhi');
@@ -63,7 +65,7 @@ export default function Login() {
         }
       e.preventDefault();
       //window.location = "https://www.bbc.co.uk";
-      //window.location='./';
+      window.location='./';
   }
   const onChangeName = (e) => {
     setName(e.target.value);

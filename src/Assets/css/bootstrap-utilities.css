@@ -384,6 +384,11 @@
   border: 1px solid #dee2e6 !important;
 }
 
+.text-box-slots{
+margin: 6px;
+height: 35px;
+text-align: center;}
+
 .border-0 {
   border: 0 !important;
 }

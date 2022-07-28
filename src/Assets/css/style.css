@@ -187,6 +187,11 @@ width: 374px;
 .border{
     border: 1px solid #66a02c0d;
   }
+  .text-box-slots{
+    margin: 6px;
+    height: 35px;
+    text-align: center;}
+    
 .enter-link .form-control::placeholder {
     color: #726464;
     font-style: italic;
