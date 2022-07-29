@@ -44,7 +44,7 @@ export default function App() {
         var data = JSON.stringify(strReqLinks);
         var config = {
             method: 'post',
-            url: 'https://localhost:44347/api/User/GetAvailability',
+            url: 'https://3.16.57.109:443/api/User/GetAvailability',
             headers: {
                 'Content-Type': 'application/json'
             },
